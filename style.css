@@ -1,0 +1,14 @@
+nav {
+    display: grid;
+}
+
+.main-nav {
+    display: flex;
+    grid-template-columns: (1fr 2fr 1fr);
+    gap: 60px;
+}
+
+.dropdowns {
+    display: flex;
+    gap: 4%;
+}
