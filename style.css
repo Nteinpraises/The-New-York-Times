@@ -1,3 +1,5 @@
+/* header section styling */
+
 nav {
     display: grid;
 }
@@ -11,4 +13,24 @@ nav {
 .dropdowns {
     display: flex;
     gap: 4%;
+}
+
+.minor-nav a {
+    color: rgb(78, 77, 77);
+    text-decoration: none;
+}
+
+.minor-nav {
+    display: flex;
+    flex-direction: row;  
+    gap: 34px;  
+}
+
+
+.minor-nav a:hover {
+    text-decoration: none;
+    background-color: lightgrey;
+    padding: 5px;
+    border-radius: 3px;
+    display: inline-block;
 }
