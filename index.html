@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The New York Times</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&family=Source+Serif+4:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,7 +16,7 @@
     <header>
         <nav>
             <section class="main-nav">
-                <div>
+                <div class="nav-left">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="11" cy="11" r="8"></circle>
                         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -22,9 +25,9 @@
                     <p>Thursday, November 12, 2026</p>
                     <p>Today's Paper</p>
                 </div>
-                <div>
+                <div class="nav-center">
                     <div class="minor-nav">
-                        <a href="#"><strong>U.S</strong></a>
+                        <a href="#"><strong>U.S.</strong></a>
                         <a href="#">INTERNATIONAL</a>
                         <a href="#">CANADA</a>
                         <a href="#">ESPANOL</a>
@@ -34,13 +37,13 @@
                         <img src="assets/img/logo (1).png" alt="NYT logo">
                     </div>
                 </div>
-                <div>
+                <div class="nav-right">
                     <a href="#">LOG IN</a>
                 </div>
             </section>
             <section class="dropdowns">
                 <div>
-                    <a href="#">U.S</a>
+                    <a href="#">U.S.</a>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
@@ -106,18 +109,10 @@
                     </svg>
                 </div>
                 <div>
-                    <a href="#">The Athlethic</a>
+                    <a href="#">The Athletic</a>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
-                </div>
-            </section>
-            <section>
-                <div>
-                    <p>_________________________________________________________________________________________________________________________________________
-                        <br>
-                       _________________________________________________________________________________________________________________________________________
-                    </p>
                 </div>
             </section>
         </nav>
@@ -128,14 +123,14 @@
 
         <section class="mainsec-p1">
             <section class="col-1">
-                <div>
-                    <p>The stories are <strong>free to read</strong></p>
+                <div class="free-text">
+                    <p>These top stories are <strong>free to read</strong></p>
                 </div>
                 <div class="video-div">
-                    <div> 
+                    <div>
                         <div>
                             <h3>Jensen Huang's Fate at Nvidia Is on the Line as Scandals Mount</h3>
-                            <p>The board met to discusss the future of its chief executive, but made no announcement about any decision.</p>
+                            <p>The board met to discuss the future of its chief executive, but made no announcement about any decision.</p>
                         </div>
                         <div>
                             <h3>Huang Is Said to Have Had Relationship With Nvidia Executive Who Reports to Him</h3>
@@ -143,10 +138,11 @@
                         </div>
                     </div>
                     <div>
-                        <video src="assets/img-vid/vid1.mp4">Jamie Leventhal</video>
+                        <video src="assets/img-vid/vid1.mp4" autoplay muted loop></video>
+                        <p class="credit">Jamie Leventhal</p>
                     </div>
                 </div>
-                <div class="video-div">
+                <div class="two-col">
                     <div>
                         <h3>Chip Giant's Shares Plunge, Shaking Up Tech Stocks</h3>
                     </div>
@@ -154,7 +150,8 @@
                         <h3>In China's Spy Operations, Romance Can Be a Long Game</h3>
                     </div>
                 </div>
-                <div class="video-div">
+                <p class="more-label">More to read for free.</p>
+                <div class="two-col">
                     <div class="image-div">
                         <h4>The Unsettling Onscreen Sexuality of Alexander Skarsgard</h4>
                         <img src="assets/img-vid/pic2.png" alt="">
@@ -166,8 +163,8 @@
                         </div>
                         <img src="assets/img-vid/pic3.png" alt="">
                     </div>
-                </div class="video-div">
-                <div>
+                </div>
+                <div class="two-col">
                     <div class="image-div">
                         <h4>ICE Officer Involved in Maine Shooting Expressed Hatred of Immigrants</h4>
                         <img src="assets/img-vid/pic4.png" alt="">
@@ -180,7 +177,7 @@
             </section>
             <section class="col-2">
                 <section>
-                    <div>
+                    <div class="feature">
                         <div>
                             <img src="assets/img-vid/pic6.png" alt="">
                         </div>
@@ -189,7 +186,7 @@
                             <p>A couple tried the suburbs, but decided the city suited their needs</p>
                         </div>
                     </div>
-                    <div>
+                    <div class="cards">
                         <div>
                             <img src="assets/img-vid/pic7.png" alt="">
                             <h3>Help! A Broken Toilet Grounded My Plane, and the Airline Won't Cover a Hotel.</h3>
