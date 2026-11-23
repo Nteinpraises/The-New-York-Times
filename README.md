@@ -59,7 +59,7 @@ Open `index.html` in a browser, or start it with the Live Server extension in VS
 - **The duplicate code check.** The linter failed because the same SVG arrow was copied 12 times in the menu. Drawing the arrow with a CSS `::after` removed the duplicates.
 - **A page cut into pieces.** The reference is a PDF split into pages, so some stories were cut at a page break and had to be rebuilt as one block.
 - **Merging two people's files.** Both developers wrote the same two files, so Git reported conflicts on all of `index.html` and `style.css`. A merge commit was pushed with the conflict markers still inside, and it had to be repaired in a new commit instead of rewriting history.
-- **Two layouts in one stylesheet.** The second half used a 908px wrapper and a video row with fixed pixel columns, while the first half used a 1200px page. Two override rules made both halves the same width.
+- **Two layouts in one style sheet.** The second half used a 908px wrapper and a video row with fixed pixel columns, while the first half used a 1200px page. Two override rules made both halves the same width.
 
 ## What I Learned
 
