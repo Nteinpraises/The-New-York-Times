@@ -3,10 +3,19 @@
 A static replica of the New York Times front page, built with HTML and CSS only by a team of two. It is built mobile first and works on phone, tablet and laptop screens.
 
 **Live site:** <https://nteinpraises.github.io/The-New-York-Times/>
-|
+
+## Screenshots
+
+| Mobile (375px) | Tablet (768px) | Laptop (1440px) |
+
+|---|---|---|
+| ![Mobile view](screenshots/mobile.png) | ![Tablet view](screenshots/tablet.png) | ![Laptop view](screenshots/laptop.png) |
 
 ## Work Split
 
+| Part | Content | Developer |
+
+|---|---|---|
 | Sections 1 to 5 | Navigation bar, top stories, right column, news stories and weather | Ntein Praises |
 | Sections 6 to 11 | Videos, More News, The Athletic, Well, Latest Shows, Culture, Wirecutter, Games, site index and footer | Luther |
 
@@ -18,6 +27,9 @@ HTML5, CSS3 (Grid and Flexbox), Google Fonts (Libre Franklin and Source Serif 4)
 
 The base styles in `style.css` are the phone layout. Two `min-width` media queries add the bigger layouts. Columns use `fr` and `minmax(0, 1fr)` instead of fixed pixels, so the page never scrolls sideways.
 
+| Screen | Width | Layout |
+
+|---|---|---|
 | Mobile | under 768px | One column, hamburger icon, menu row scrolls inside its own box |
 | Tablet | 768px and up | Two-column rows, three-column header |
 | Laptop | 1024px and up | Wide main column with a narrow right column |
@@ -61,7 +73,7 @@ Open `index.html` in a browser, or use the Live Server extension in VS Code. An 
 - There is no JavaScript, so the menu, search icon and carousel arrows do not react to clicks.
 - The election results are a picture, not live data.
 - All ads are removed.
-- Image file names and large video files still need cleaning up.
+- Image filenames and large video files still need cleaning up.
 
 ## Authors
 

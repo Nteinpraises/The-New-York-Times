@@ -1,12 +1,4 @@
-/* =====================================================================
-   THE NEW YORK TIMES REPLICA - MOBILE FIRST
-   How this file is organised:
-   1. Variables and basic reset
-   2. BASE STYLES = mobile phone (written first, no media query)
-   3. TABLET styles  = @media (min-width: 768px)
-   4. LAPTOP styles  = @media (min-width: 1024px)
-   Each bigger screen only ADDS or CHANGES what the smaller screen set.
-   ===================================================================== */
+/* THE NEW YORK TIMES REPLICA */
 
 /* ---------- 1. Variables and reset ---------- */
 
@@ -14,8 +6,8 @@
   --ink: #121212;
   --mute: #666;
   --line: #dfdfdf;
-  --sans: "Libre Franklin", Arial, sans-serif;
-  --serif: "Source Serif 4", Georgia, serif;
+  --sans: "Libre Franklin", arial, sans-serif;
+  --serif: "Source Serif 4", georgia, serif;
 }
 
 * {
