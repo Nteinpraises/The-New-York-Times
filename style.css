@@ -1,0 +1,1186 @@
+/* THE NEW YORK TIMES REPLICA */
+
+/* ---------- 1. Variables and reset ---------- */
+
+:root {
+  --ink: #121212;
+  --mute: #666;
+  --line: #dfdfdf;
+  --sans: "Libre Franklin", arial, sans-serif;
+  --serif: "Source Serif 4", georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+figure {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+/* ---------- 2. Base text styles (shared by all screens) ---------- */
+
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--sans);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.2px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 15px;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0 0 8px;
+  color: var(--mute);
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.meta,
+.comments,
+.live {
+  color: var(--mute);
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+
+.meta {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.meta.dark {
+  color: var(--ink);
+}
+
+.live {
+  color: #d0021b;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+figcaption,
+.credit,
+.cr {
+  margin-top: 5px;
+  color: #888;
+  font-family: var(--sans);
+  font-size: 11px;
+  text-align: right;
+}
+
+/* Every Google icon is a fixed square box, so while the icon font is still
+   loading (or if it fails) the icon name can never stretch the page */
+.material-icons {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+}
+
+/* comment-count icon (Google Material Icons "chat_bubble_outline") */
+.cm::before {
+  content: "\e0cb";
+  margin-right: 4px;
+  font-family: "Material Icons", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  vertical-align: -2px;
+}
+
+/* ---------- 2a. Header (mobile) ---------- */
+
+nav {
+  margin-bottom: 20px;
+}
+
+/* Two rows on a phone: icons + LOG IN on top, logo underneath */
+.main-nav {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "left right"
+    "center center";
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  font-family: var(--sans);
+  font-size: 12px;
+}
+
+.nav-left {
+  grid-area: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav-center {
+  grid-area: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-right {
+  grid-area: right;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 14px;
+}
+
+/* the date and the language links are hidden on a phone */
+.nav-date,
+.minor-nav {
+  display: none;
+}
+
+.nav-date p {
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.nav-center img {
+  width: 100%;
+  max-width: 380px;
+}
+
+.nav-right a {
+  display: block;
+  padding: 7px 15px;
+  border-radius: 3px;
+  background: #567b95;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* The menu row scrolls sideways INSIDE its own box on a phone */
+.dropdowns {
+  display: flex;
+  gap: 20px;
+  padding: 10px 0;
+  overflow-x: auto;
+  border-bottom: 3px double var(--ink);
+  font-family: var(--sans);
+  font-size: 13px;
+}
+
+.dropdowns a {
+  display: flex;
+  flex: none;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.dropdowns .material-icons {
+  font-size: 16px;
+}
+
+.minor-nav a {
+  padding: 5px;
+  border-radius: 3px;
+  color: #4e4d4d;
+}
+
+.minor-nav a:hover {
+  background: lightgrey;
+}
+
+/* ---------- 2b. Top section: every block is stacked in ONE column ---------- */
+
+.mainsec-p1,
+.col-1,
+.col-2,
+.free-box {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+}
+
+.mainsec-p1 {
+  gap: 24px;
+}
+
+.free-box {
+  padding: 12px 16px;
+  border: 1px solid var(--ink);
+}
+
+.free-text {
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 14px;
+  text-align: center;
+}
+
+.free-text p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.video-div,
+.story,
+.weather,
+.two-col {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+.video-div > div > div + div {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.video-div h3,
+.story h3,
+.story-wide h3 {
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.video-div video {
+  width: 100%;
+  background: #111;
+}
+
+.story {
+  padding-top: 16px;
+  border-top: 1px solid var(--ink);
+}
+
+.story .sub-story {
+  margin-top: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 17px;
+}
+
+.two-col {
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.two-col h3 {
+  font-size: 16px;
+}
+
+.more-label {
+  margin: 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--ink);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* a headline on the left and a small square picture on the right */
+.image-div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.image-div h4 {
+  font-size: 15px;
+}
+
+.headlines {
+  display: grid;
+  grid-template-columns: 60px minmax(0, 1fr);
+  gap: 15px;
+  padding-top: 16px;
+  border-top: 1px solid var(--ink);
+}
+
+.headlines h3 {
+  font-size: 17px;
+}
+
+/* rows of links: they wrap onto a new line instead of overflowing */
+.election-links,
+.topic-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--ink);
+  font-family: var(--sans);
+  font-size: 13px;
+}
+
+.results img {
+  width: 100%;
+}
+
+.story-wide {
+  padding-top: 16px;
+  border-top: 1px solid var(--ink);
+}
+
+.story-wide .two-col {
+  padding-top: 12px;
+  border-top: 0;
+}
+
+.tip {
+  margin: 0;
+  padding: 12px 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  color: var(--ink);
+  font-size: 14px;
+  text-align: center;
+}
+
+.weather {
+  padding-top: 16px;
+  border-top: 1px solid var(--ink);
+}
+
+.weather h4 {
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.weather h2 {
+  font-size: 32px;
+}
+
+/* ---------- 2c. Right column (Opinion, Most Shared) ---------- */
+
+.feature {
+  margin-bottom: 16px;
+}
+
+.feature h1 {
+  margin: 10px 0 8px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+  padding-top: 15px;
+  border-top: 1px solid var(--line);
+}
+
+.cards h3 {
+  font-size: 16px;
+}
+
+.side-title {
+  padding-bottom: 5px;
+  font-size: 13px;
+}
+
+.side-list article {
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+
+.side-list .two-col {
+  padding-top: 0;
+  border-top: 0;
+  gap: 0;
+}
+
+.side-list h3 {
+  font-size: 17px;
+}
+
+/* ---------- 2d. Sections below the top story ---------- */
+
+.wrap > section {
+  margin-top: 32px;
+}
+
+.label {
+  margin-bottom: 12px;
+  padding-top: 8px;
+  border-top: 1px solid var(--ink);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.label.ath {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-weight: 400;
+}
+
+.ath b {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.ath i {
+  font-family: var(--serif);
+  font-size: 14px;
+}
+
+/* Videos and Well: 2 columns on a phone */
+.videos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.videos .im {
+  margin-bottom: 8px;
+  background: #ececec;
+  aspect-ratio: 155 / 232;
+}
+
+.im video,
+.im img {
+  width: 100%;
+  height: 100%;
+  background: #111;
+  object-fit: cover;
+}
+
+.videos h4 {
+  font-size: 15px;
+}
+
+.videos .meta {
+  margin-bottom: 4px;
+}
+
+/* More News */
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+.lead h3 {
+  margin-bottom: 6px;
+  font-size: 20px;
+}
+
+.hero .im {
+  aspect-ratio: 378 / 251;
+}
+
+.side .item,
+.cright .item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 72px;
+  gap: 12px;
+}
+
+.side .item + .item,
+.cright .item + .item {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.side h5 {
+  margin-bottom: 5px;
+}
+
+.th {
+  width: 72px;
+  height: 72px;
+  background: #ececec;
+}
+
+.th img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rows {
+  margin-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.row3 article {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.row3 h5 {
+  margin-bottom: 5px;
+}
+
+/* The Athletic, Culture, Wirecutter share the same 3-part grid */
+.agrid,
+.cgrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+/* big picture first on a phone */
+.ahero,
+.chero {
+  order: -1;
+}
+
+.ahero img,
+.chero img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 378 / 252;
+}
+
+.aleft article,
+.aright article {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.aleft article:last-child,
+.aright article:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.aleft h5,
+.aright h5 {
+  margin-bottom: 4px;
+}
+
+.conn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.conn img {
+  width: 46px;
+  height: 46px;
+}
+
+/* Well and Latest Shows */
+.videos.well .im {
+  margin-bottom: 0;
+  aspect-ratio: 1;
+}
+
+.label.shows {
+  margin-top: 24px;
+}
+
+.showgrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+.show {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  height: 140px;
+  overflow: hidden;
+  border-radius: 2px;
+  color: #fff;
+}
+
+.show img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sp {
+  position: relative;
+  padding: 10px;
+  background: var(--c);
+}
+
+.sp .top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sp .ic {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+}
+
+.sp small {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.sp h4 {
+  margin-top: 10px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.pl {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgb(0 0 0 / 65%);
+}
+
+.pl .material-icons {
+  font-size: 18px;
+}
+
+.arrows {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.arrows span {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  color: #bbb;
+  font-size: 18px;
+}
+
+.arrows .on {
+  border-color: #222;
+  color: #222;
+}
+
+/* Culture */
+.cleft h3 {
+  margin-bottom: 9px;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.22;
+}
+
+.cright img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+}
+
+.cright h5 {
+  margin-bottom: 3px;
+}
+
+/* Games */
+.pzrow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  border-bottom: 1px solid var(--line);
+}
+
+.pzrow.last {
+  border-bottom: 0;
+}
+
+.pc {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 56px;
+  gap: 10px;
+  padding: 12px 0;
+}
+
+.pc + .pc {
+  border-top: 1px solid var(--line);
+}
+
+.pc h5 {
+  margin-bottom: 3px;
+  font-size: 15px;
+}
+
+.pc p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.pc img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+/* Site index: 2 columns on a phone */
+.idxwrap {
+  padding: 24px 0 48px;
+}
+
+.dbl {
+  height: 4px;
+  margin-bottom: 32px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.idx + .idx {
+  margin-top: 48px;
+}
+
+.idx h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.ig {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px 16px;
+}
+
+.ib h6 {
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+
+.ib img {
+  width: 100%;
+  margin-bottom: 8px;
+  background: #ececec;
+  object-fit: cover;
+  aspect-ratio: 201 / 135;
+}
+
+.ib ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ib li {
+  margin-bottom: 6px;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.ib li a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- 2e. Footer: 2 columns on a phone ---------- */
+
+.sitefoot {
+  padding: 16px 0 32px;
+}
+
+.sf-top {
+  border-top: 3px double #d8d8d8;
+}
+
+.sf-logo {
+  width: 160px;
+  margin: 12px 0 24px;
+}
+
+.sf-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 16px;
+}
+
+.sf-h {
+  margin-bottom: 12px;
+  color: #333;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.sf-link {
+  display: block;
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 28px;
+}
+
+.sf-big {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 17px;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.sf-ic {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+.sf-sm {
+  display: block;
+  color: #333;
+  font-family: var(--sans);
+  font-size: 12px;
+  line-height: 25px;
+}
+
+.sf-sep {
+  margin: 8px 0 6px;
+  border: 0;
+  border-top: 1px solid #e2e2e2;
+}
+
+.sf-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 12px;
+  padding-top: 14px;
+  border-top: 1px solid #e2e2e2;
+  font-family: var(--sans);
+  font-size: 11.5px;
+}
+
+.sf-lg {
+  color: var(--mute);
+}
+
+/* =====================================================================
+   3. TABLET  (screens 768px wide and up)
+   ===================================================================== */
+
+@media (min-width: 768px) {
+  body {
+    padding: 0 24px;
+  }
+
+  /* header: 3 columns - date | logo | login */
+  .main-nav {
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: "left center right";
+    align-items: start;
+  }
+
+  .nav-right {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .menu-link {
+    display: none;
+  }
+
+  .nav-date {
+    display: block;
+  }
+
+  .minor-nav {
+    display: flex;
+    gap: 20px;
+  }
+
+  /* menu row wraps onto two lines and is centered */
+  .dropdowns {
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-x: visible;
+  }
+
+  /* text sizes get a little bigger */
+  .video-div h3,
+  .story h3,
+  .story-wide h3 {
+    font-size: 22px;
+  }
+
+  /* two headlines side by side */
+  .two-col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .side-list .two-col {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .video-div,
+  .story {
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+  }
+
+  .weather {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .story-wide img {
+    height: 320px;
+    object-fit: cover;
+  }
+
+  /* right column becomes 2 columns under the main stories */
+  .col-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .top-feature {
+    grid-column: 1 / -1;
+  }
+
+  .feature {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: 16px;
+  }
+
+  .videos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .side {
+    grid-column: 1 / -1;
+  }
+
+  .row3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .agrid,
+  .cgrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ahero,
+  .chero {
+    grid-column: 1 / -1;
+  }
+
+  .showgrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pzrow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .pc {
+    padding-right: 16px;
+  }
+
+  .pc + .pc {
+    padding-left: 16px;
+    border-top: 0;
+    border-left: 1px solid var(--line);
+  }
+
+  .ig {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sf-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* =====================================================================
+   4. LAPTOP  (screens 1024px wide and up)
+   ===================================================================== */
+
+@media (min-width: 1024px) {
+  .main-nav {
+    padding: 15px 0;
+  }
+
+  .dropdowns {
+    gap: 24px;
+  }
+
+  /* main page: wide column on the left, narrow column on the right */
+  .mainsec-p1 {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 3fr);
+  }
+
+  .col-2 {
+    grid-template-columns: minmax(0, 1fr);
+    padding-left: 20px;
+    border-left: 1px solid var(--line);
+  }
+
+  .top-feature {
+    grid-column: auto;
+  }
+
+  .feature {
+    display: block;
+  }
+
+  .feature h1 {
+    font-size: 24px;
+  }
+
+  .side-list .two-col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .story-wide img {
+    height: 420px;
+  }
+
+  .videos {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  .videos article {
+    padding-right: 12px;
+  }
+
+  .videos article + article {
+    padding-left: 12px;
+    border-left: 1px solid var(--line);
+  }
+
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .lead {
+    grid-column: span 1;
+  }
+
+  .hero {
+    grid-column: span 2;
+  }
+
+  .side {
+    grid-column: span 1;
+    padding-left: 16px;
+    border-left: 1px solid var(--line);
+  }
+
+  .agrid,
+  .cgrid {
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 20px;
+  }
+
+  .ahero,
+  .chero {
+    order: 0;
+    grid-column: auto;
+  }
+
+  .aright,
+  .cright {
+    padding-left: 12px;
+    border-left: 1px solid var(--line);
+  }
+
+  .showgrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .ig {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 44px 24px;
+  }
+
+  .sf-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .sf-acct {
+    padding-left: 16px;
+    border-left: 1px solid #dcdcdc;
+  }
+}
